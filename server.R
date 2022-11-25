@@ -392,16 +392,19 @@ shinyServer(function(input, output, session) {
                         vAxis=paste0("{slantedText:'true',showTextEvery:10,textStyle:{fontName:'calibri', fontSize:",input$fontSize3,"}}"),
                         bar="{groupWidth:'66%'}", width=780, height=900)))
     else if (input$bar_plot=="Bar")
+    {
+      browser()
       return(gvisBarChart(df,
                           options=list(seriesType="bars", legend="top",
                                        vAxis=paste0("{slantedText:'true',showTextEvery:10,textStyle:{fontName:'calibri',fontSize:",input$fontSize3,"}}"),
-                                       bar="{groupWidth:'50%'}", width=680, height=min(900,nrow(df)*45)),
+                                       bar="{groupWidth:'50%'}", width=880, height=min(1200,nrow(df)*55)),
                           chartid="thincolumns"))
+    }
     else if (input$bar_plot=="Column")
       return(gvisColumnChart(df,
                           options=list(seriesType="bars", legend="top",
                                        vAxis=paste0("{slantedText:'true',showTextEvery:10,textStyle:{fontName:'calibri',fontSize:",input$fontSize3,"}}"),
-                                       bar="{groupWidth:'66%'}", width=780, height=min(900,nrow(df)*45)),
+                                       bar="{groupWidth:'66%'}", width=780, height=min(1200,nrow(df)*55)),
                           chartid="thincolumns"))
     
   })
